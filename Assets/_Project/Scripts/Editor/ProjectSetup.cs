@@ -82,6 +82,23 @@ namespace IdleArcade.EditorTools
             QualitySettings.SetQualityLevel(count - 1, false);
         }
 
+        /// <summary>
+        /// Browser build for a "open the link and play" page (GitHub Pages): gzip with the JS decompression
+        /// fallback (static hosting sends no Content-Encoding headers), cached data, custom full-window template.
+        /// </summary>
+        public static void ConfigureWebGL()
+        {
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.dataCaching = true;
+            PlayerSettings.WebGL.template = "PROJECT:VillageMarket";
+            PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
+            PlayerSettings.WebGL.showDiagnostics = false;
+            PlayerSettings.WebGL.nameFilesAsHashes = false;
+            PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.WebGL, "com.alena.villagemarket");
+            AssetDatabase.SaveAssets();
+        }
+
         /// <summary>Android player settings: portrait phone app, 64-bit (IL2CPP + ARM64), sideloadable APK.</summary>
         public static void ConfigureAndroid()
         {

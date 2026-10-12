@@ -71,6 +71,26 @@ namespace IdleArcade
 
         public static bool HasSave => File.Exists(PathMain) || File.Exists(PathBak);
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+        // Browsers have no real file system: the save lives in PlayerPrefs (IndexedDB), flushed on every save.
+        static string PrefsKey => "save." + Slot;
+
+        public static void Load() => Data = Parse(PlayerPrefs.GetString(PrefsKey, ""), PrefsKey) ?? new SaveData();
+
+        public static void Save()
+        {
+            Data.lastSaveUtc = DateTime.UtcNow.ToString("o");
+            PlayerPrefs.SetString(PrefsKey, JsonUtility.ToJson(Data));
+            PlayerPrefs.Save();
+        }
+
+        public static void Wipe()
+        {
+            Data = new SaveData();
+            PlayerPrefs.DeleteKey(PrefsKey);
+            PlayerPrefs.Save();
+        }
+#else
         public static void Load()
         {
             Data = TryRead(PathMain) ?? TryRead(PathBak) ?? new SaveData();
@@ -81,7 +101,22 @@ namespace IdleArcade
             try
             {
                 if (!File.Exists(path)) return null;
-                var json = File.ReadAllText(path);
+                return Parse(File.ReadAllText(path), path);
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"[Save] read failed {path}: {e.Message}");
+                return null;
+            }
+        }
+
+#endif
+
+        static SaveData Parse(string json, string source)
+        {
+            if (string.IsNullOrEmpty(json)) return null;
+            try
+            {
                 var d = JsonUtility.FromJson<SaveData>(json);
                 if (d == null) return null;
                 d.unlocked ??= new List<string>();
@@ -94,11 +129,12 @@ namespace IdleArcade
             }
             catch (Exception e)
             {
-                Debug.LogWarning($"[Save] read failed {path}: {e.Message}");
+                Debug.LogWarning($"[Save] read failed {source}: {e.Message}");
                 return null;
             }
         }
 
+#if !(UNITY_WEBGL && !UNITY_EDITOR)
         public static void Save()
         {
             try
@@ -129,6 +165,7 @@ namespace IdleArcade
             }
             catch (Exception e) { Debug.LogWarning($"[Save] wipe failed: {e.Message}"); }
         }
+#endif
 
         public static double SecondsSinceLastSave()
         {

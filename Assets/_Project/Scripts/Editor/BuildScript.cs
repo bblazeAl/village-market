@@ -28,6 +28,19 @@ namespace IdleArcade.EditorTools
         [MenuItem("IdleArcade/Build/Android APK")]
         public static void BuildAndroid() => Queue(BuildTarget.Android);
 
+        [MenuItem("IdleArcade/Build/WebGL (browser)")]
+        public static void BuildWebGL() => Queue(BuildTarget.WebGL);
+
+        /// <summary>
+        /// Command line: Unity -batchmode -quit -projectPath . -buildTarget WebGL -executeMethod IdleArcade.EditorTools.BuildScript.BuildWebGLBatch
+        /// (write BuildStamp.cs before launching; batch mode compiles once).
+        /// </summary>
+        public static void BuildWebGLBatch()
+        {
+            var report = Run(BuildTarget.WebGL);
+            if (report.summary.result != BuildResult.Succeeded) EditorApplication.Exit(1);
+        }
+
         static void Queue(BuildTarget target)
         {
             string stamp = DateTime.Now.ToString("dd.MM HH:mm") + " " + GitHash();
@@ -48,20 +61,26 @@ namespace IdleArcade.EditorTools
             // wait until the recompiled stamp is live so the build shows the right version
             if (IdleArcade.BuildStamp.Value != SessionState.GetString(PendingKey + ".stamp", "")) { EditorApplication.delayCall += DoBuild; return; }
             SessionState.SetBool(PendingKey, false);
-            var target = (BuildTarget)SessionState.GetInt(TargetKey, (int)BuildTarget.StandaloneWindows64);
+            Run((BuildTarget)SessionState.GetInt(TargetKey, (int)BuildTarget.StandaloneWindows64));
+        }
+
+        static BuildReport Run(BuildTarget target)
+        {
             bool android = target == BuildTarget.Android;
+            bool web = target == BuildTarget.WebGL;
+            if (web) ProjectSetup.ConfigureWebGL();
             if (android)
             {
                 ProjectSetup.ConfigureAndroid();
                 // the Windows user folder has Cyrillic letters; Gradle's prefab step can't load jars from such a path
                 Environment.SetEnvironmentVariable("GRADLE_USER_HOME", "C:/dev/_gradle");
             }
-            string outDir = Path.GetFullPath(android ? "Builds/Android" : "Builds/Windows");
+            string outDir = Path.GetFullPath(android ? "Builds/Android" : web ? "Builds/WebGL" : "Builds/Windows");
             Directory.CreateDirectory(outDir);
             var opts = new BuildPlayerOptions
             {
                 scenes = new[] { SceneBuilder.BootScenePath, SceneBuilder.GameScenePath },
-                locationPathName = Path.Combine(outDir, android ? "VillageMarket.apk" : "VillageMarket.exe"),
+                locationPathName = web ? outDir : Path.Combine(outDir, android ? "VillageMarket.apk" : "VillageMarket.exe"),
                 target = target,
                 targetGroup = BuildPipeline.GetBuildTargetGroup(target),
                 options = BuildOptions.None
@@ -72,6 +91,7 @@ namespace IdleArcade.EditorTools
                 Debug.Log($"[Build] OK {report.summary.totalSize / (1024 * 1024)} MB in {report.summary.totalTime.TotalSeconds:0}s -> {opts.locationPathName}");
             else
                 Debug.LogError($"[Build] FAILED: {report.summary.result} errors={report.summary.totalErrors}");
+            return report;
         }
 
         static string GitHash()
