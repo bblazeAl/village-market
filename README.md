@@ -4,7 +4,9 @@
 
 ![Village Market](docs/img/2026-10-10/ingame_3_moments.png)
 
-### [⬇ Скачать для Windows](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip) · [⬇ Скачать для Android](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk)
+## [▶ Играть в браузере](https://bblazeal.github.io/village-market/)
+
+Открой ссылку — и сразу играй, ничего не устанавливая. Или скачай: [Windows](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip) · [Android](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk)
 
 *English version below.*
 
@@ -33,6 +35,9 @@
 
 ## Как установить
 
+**В браузере** — просто открой [bblazeal.github.io/village-market](https://bblazeal.github.io/village-market/). Лучше всего на компьютере в Chrome, Edge или Firefox; прогресс сохраняется в браузере.
+
+
 **Windows.** Скачай [архив](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip), распакуй папку целиком и запусти `VillageMarket.exe`. Если Windows покажет окно «Система Windows защитила ваш компьютер», нажми «Подробнее» → «Выполнить в любом случае».
 
 **Android (8 и новее).** Скачай [файл игры](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk) на телефон и открой его. Разреши установку из этого источника, а на предупреждении Google Play Защиты нажми «Всё равно установить».
@@ -53,7 +58,9 @@
 
 **A cozy game about running your own market in a fairy-tale village.** Pick apples, bake bread and pies, serve your customers and turn a tiny stall into the busiest market around.
 
-### [⬇ Download for Windows](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip) · [⬇ Download for Android](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk)
+## [▶ Play in your browser](https://bblazeal.github.io/village-market/)
+
+Open the link and play right away, nothing to install. Or download: [Windows](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip) · [Android](https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk)
 
 You are a fox shopkeeper with a handful of coins and an empty square. Pick apples, stock the stall and ring up customers at the till. Spend your earnings on new stalls, an orchard, bakery ovens and a terrace where guests enjoy apple pie. Bunnies, cats, frogs, raccoons and other villagers come with their own wishes — keep them happy and they'll tip and come back; now and then a VIP guest in a crown pays triple. When business booms, hire a cashier, an apple picker, a baker and a terrace helper who keep working even while you're away.
 

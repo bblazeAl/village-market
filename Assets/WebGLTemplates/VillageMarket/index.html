@@ -84,8 +84,8 @@
       document.getElementById("fullscreen").textContent = T.fullscreen;
       document.getElementById("dl-win").textContent = T.win;
       document.getElementById("dl-android").textContent = T.android;
-      var status = document.getElementById("status");
-      status.textContent = T.loading;
+      var statusEl = document.getElementById("status");
+      statusEl.textContent = T.loading;
 
       var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       function layout() {
@@ -120,8 +120,8 @@
 
       function showError() {
         document.getElementById("bar").style.display = "none";
-        status.className = "error";
-        status.textContent = T.error;
+        statusEl.className = "error";
+        statusEl.textContent = T.error;
         document.getElementById("loading").classList.remove("hidden");
       }
 
@@ -133,7 +133,7 @@
       script.onload = function () {
         createUnityInstance(canvas, config, function (progress) {
           document.getElementById("fill").style.width = Math.round(100 * progress) + "%";
-          if (progress >= 0.9) status.textContent = T.starting;
+          if (progress >= 0.9) statusEl.textContent = T.starting;
         }).then(function (unityInstance) {
           instance = unityInstance;
           document.getElementById("loading").classList.add("hidden");
