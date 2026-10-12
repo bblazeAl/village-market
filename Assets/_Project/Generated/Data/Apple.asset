@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ceb681e5238314e99859ffbd78802d, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: IdleArcade.Runtime::IdleArcade.ItemType
+  kind: 0
+  nameKey: item.apple
+  prefab: {fileID: 4174432744790456143, guid: e6c73ad5d4162e0448d6dfebb0c654eb, type: 3}
+  icon: {fileID: 6528281459054162086, guid: 629ce8aaa28081b47875ccee419f6f92, type: 3}
+  price: 4
+  stackHeight: 0.3
+  footprint: 0.3
+  sellable: 1

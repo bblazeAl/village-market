@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ceb681e5238314e99859ffbd78802d, type: 3}
+  m_Name: Plate
+  m_EditorClassIdentifier: IdleArcade.Runtime::IdleArcade.ItemType
+  kind: 3
+  nameKey: item.plate
+  prefab: {fileID: 6575849318263328567, guid: f03ba11f928e4e64b8a13ecc885298e0, type: 3}
+  icon: {fileID: 6259638122856327435, guid: 7d412a739b3b7464493531644b8b50b4, type: 3}
+  price: 0
+  stackHeight: 0.075
+  footprint: 0.3
+  sellable: 0

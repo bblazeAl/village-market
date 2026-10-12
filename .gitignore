@@ -1,0 +1,55 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+.vs/
+.vscode/
+.idea/
+crashlytics-buildid.txt
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+
+# screenshots and scratch
+/Captures/
+/Assets/Screenshots/
+/Assets/Screenshots.meta
+
+# Synty assets are licensed to Alena (SyntyPass) - never commit them.
+# Restore: copy C:/dev/feed_the_frog/Assets/_Project/Art/Synty (with .meta files) to Assets/_Project/Art/Synty
+/Assets/_Project/Art/Synty/
+/Assets/_Project/Art/Synty.meta
+
+# embedded mcp-unity package (408 MB with node_modules) - restore by copying from feed_the_frog/Packages
+/Packages/com.gamelovers.mcp-unity/
+
+# Unity Android build scratch
+.utmp/
+
+# private working notes (session journals) - local only
+/docs/private/

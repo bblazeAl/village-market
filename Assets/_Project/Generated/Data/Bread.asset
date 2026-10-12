@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ceb681e5238314e99859ffbd78802d, type: 3}
+  m_Name: Bread
+  m_EditorClassIdentifier: IdleArcade.Runtime::IdleArcade.ItemType
+  kind: 1
+  nameKey: item.bread
+  prefab: {fileID: 2876395044019338768, guid: fc6aac27894f2024987dd5457b73b3bc, type: 3}
+  icon: {fileID: 5936450723671393296, guid: c9682a1470e0bd742a856ec282409bd1, type: 3}
+  price: 8
+  stackHeight: 0.2
+  footprint: 0.3
+  sellable: 1

@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a652a475083c34b8bd92430f2a7a84, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: IdleArcade.Runtime::IdleArcade.GameConfig
+  apple: {fileID: 11400000, guid: 9127fd8f5816743429c04de2a78dd928, type: 2}
+  bread: {fileID: 11400000, guid: 72712ab5099594448b088cbc56704322, type: 2}
+  pie: {fileID: 11400000, guid: 4fff913986400f54384c31079dd85e41, type: 2}
+  plate: {fileID: 11400000, guid: 75cce4d7eda9a5a499bd602982360b4b, type: 2}
+  coinFlyPrefab: {fileID: 1264272400033076287, guid: 9d071fe4dbc5c1d4192ad724a484eb88, type: 3}
+  coinStackPrefab: {fileID: 2784758709422705502, guid: 7f91e69c6ba47b442bb7fd38a9cff2b5, type: 3}
+  basketPrefab: {fileID: 731737961452891911, guid: 2f1bda11657c4d94d8c757b1afa64bd1, type: 3}
+  playerModel: {fileID: 4864120627052448342, guid: 87543897919a06e4c9f841c63b4f5fb9, type: 3}
+  customerModels:
+  - {fileID: 8908122148626146253, guid: 7f97ddc0d693a0d45a7151e81165be11, type: 3}
+  - {fileID: 7517139575663391313, guid: e7e5a0a6632a21a48bd2736ead791091, type: 3}
+  - {fileID: 2684404703277580328, guid: fdd8d84cec5087a479e3a3b0c031b403, type: 3}
+  - {fileID: 6929107073675215272, guid: 773816704c93efb44a16b54c291b13be, type: 3}
+  - {fileID: 2141610353401006500, guid: 4f99572d119932b499bccc5cdac84383, type: 3}
+  - {fileID: 6445089357956671520, guid: 3360aad1a73813e439ab00afc3dd9611, type: 3}
+  - {fileID: 4583814765453442993, guid: 75c61d8dc96aa0d4da6c502f7444646d, type: 3}
+  - {fileID: 3329244074904586184, guid: e5d67a04157b84542befec53c243f6ee, type: 3}
+  - {fileID: 4414966460589624572, guid: ec7dedaf71b85da47a1d8594816e49a5, type: 3}
+  - {fileID: 3425370392285870904, guid: fe17ea4fb61a9a140a6a645f9bffd0cf, type: 3}
+  - {fileID: 3783256465832989184, guid: 1617174c7ca255244963f78b7069a5f9, type: 3}
+  helperModels:
+  - {fileID: 455014415989462923, guid: cc3bdfcf95751d741b4fae11d5e7c8b5, type: 3}
+  - {fileID: 455014415989462923, guid: cc3bdfcf95751d741b4fae11d5e7c8b5, type: 3}
+  - {fileID: 4517668557768162849, guid: 860f505f89644db4b88ec4f837c05735, type: 3}
+  - {fileID: 593212813300651730, guid: 101dfc27220b93b44988a18187009380, type: 3}
+  - {fileID: 2872655222226664562, guid: c174f6b3fe744a0479787f629a7096ff, type: 3}
+  helperHat: {fileID: 6946387079033429737, guid: fa88b2393f50bf045a5e2e0f13c4e96a, type: 3}
+  vipCrown: {fileID: 3683500188414798190, guid: 0920d4228fd286f4b8145e175dcf5ca8, type: 3}
+  animator: {fileID: 9100000, guid: e695cd249230539468d30f25cd8b0782, type: 2}
+  fxDust: {fileID: 1890925592478458, guid: 24968bc268c2c174e9b7abebc0a1a80d, type: 3}
+  fxSparkles: {fileID: 1817838760325542, guid: 24506cea1025d6241b81eed5c90ee609, type: 3}
+  fxConfetti: {fileID: 1575721338728490, guid: 4171bb92c5c591848b14be1db6f3efe2, type: 3}
+  fxLevelUp: {fileID: 1624714524768532, guid: c9eb15264aa6c4348b00d5b9b3daab2a, type: 3}
+  fxHeart: {fileID: 1586284866332922, guid: 5a98cb783d692744e8e305c5b0b5f551, type: 3}
+  fxCoinBurst: {fileID: 1919543859444104, guid: 0796b331004a84744a609063dc845137, type: 3}
+  fxSmoke: {fileID: 1014252301174022, guid: 76ef43c1bd544924b8aeb115e01163b5, type: 3}
+  fxStep: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+  fxFireworks: {fileID: 1594970968046242, guid: 07aa037621e4eba478ebfb04ecfbf0f5, type: 3}
+  fxSplash: {fileID: 1730680232597524, guid: 5a3c9da90a2a4ea4692cee3096b94082, type: 3}
+  sfx:
+  - id: 0
+    clips:
+    - {fileID: 8300000, guid: 36033aaad9138414eac32f6da09fb7c3, type: 3}
+    - {fileID: 8300000, guid: aad927bf47875db49955ccfcb56e3de0, type: 3}
+    volume: 0.7
+    pitchJitter: 0
+    minInterval: 0.03
+  - id: 1
+    clips:
+    - {fileID: 8300000, guid: 41458d8f265592740a7d6b991944eba7, type: 3}
+    - {fileID: 8300000, guid: 544bb46ebb08e2848a265cab48e6365f, type: 3}
+    - {fileID: 8300000, guid: 086af85d20927b241a2b1ac493b51229, type: 3}
+    volume: 0.7
+    pitchJitter: 0.05
+    minInterval: 0.03
+  - id: 2
+    clips:
+    - {fileID: 8300000, guid: 9f82c4dc28c0da64b820b4de3cfc22ff, type: 3}
+    - {fileID: 8300000, guid: 9dd4fe1c1b522a54bb89155b23c404d4, type: 3}
+    - {fileID: 8300000, guid: a0c03945ea5fe444689828ada600c612, type: 3}
+    volume: 0.55
+    pitchJitter: 0.08
+    minInterval: 0.025
+  - id: 3
+    clips:
+    - {fileID: 8300000, guid: fb43341c5a00804489674414ea973f53, type: 3}
+    - {fileID: 8300000, guid: 911a5cc80422d194ba420768f2e5bda9, type: 3}
+    - {fileID: 8300000, guid: 5ca74b0128cfe884981b18c769820c8c, type: 3}
+    - {fileID: 8300000, guid: c5e178fe657db5b43b8fa90c64cdbe45, type: 3}
+    volume: 0.8
+    pitchJitter: 0.05
+    minInterval: 0.1
+  - id: 4
+    clips:
+    - {fileID: 8300000, guid: 730c577571965d748bc9fb1797166b3c, type: 3}
+    - {fileID: 8300000, guid: 7635e50901bf6b9468c0449c5d8d031f, type: 3}
+    - {fileID: 8300000, guid: b1d14e03a632ce342aa9497c5fd9c39e, type: 3}
+    volume: 0.5
+    pitchJitter: 0
+    minInterval: 0.04
+  - id: 5
+    clips:
+    - {fileID: 8300000, guid: 6d8601d712f63f14f809829c1031f7f9, type: 3}
+    volume: 0.8
+    pitchJitter: 0
+    minInterval: 0.2
+  - id: 6
+    clips:
+    - {fileID: 8300000, guid: 4d73fc2702103724faed70b4bd67ae67, type: 3}
+    volume: 0.9
+    pitchJitter: 0
+    minInterval: 0.5
+  - id: 7
+    clips:
+    - {fileID: 8300000, guid: 8b9273a17f4dc904cb89b1ae51ad779b, type: 3}
+    volume: 0.8
+    pitchJitter: 0
+    minInterval: 0.3
+  - id: 8
+    clips:
+    - {fileID: 8300000, guid: 144b1339fbe570f4cab5ef4594e91529, type: 3}
+    volume: 0.8
+    pitchJitter: 0
+    minInterval: 0.15
+  - id: 9
+    clips:
+    - {fileID: 8300000, guid: c6d88bb80ec0b8244abe0683b5021538, type: 3}
+    volume: 0.6
+    pitchJitter: 0.04
+    minInterval: 0.08
+  - id: 10
+    clips:
+    - {fileID: 8300000, guid: b1f2ddc44e5332249b4096d7ae20c9c9, type: 3}
+    volume: 0.45
+    pitchJitter: 0.1
+    minInterval: 0.1
+  - id: 11
+    clips:
+    - {fileID: 8300000, guid: 0614029bc353ecd4785e85a5d2356bcd, type: 3}
+    volume: 0.7
+    pitchJitter: 0.03
+    minInterval: 0.03
+  - id: 12
+    clips:
+    - {fileID: 8300000, guid: aefe9350353a84643b6b8ae3fdbb8041, type: 3}
+    volume: 0.6
+    pitchJitter: 0.03
+    minInterval: 0.1
+  - id: 13
+    clips:
+    - {fileID: 8300000, guid: df7be368e9be05743a27e08538c2c293, type: 3}
+    volume: 0.6
+    pitchJitter: 0.03
+    minInterval: 0.1
+  - id: 14
+    clips:
+    - {fileID: 8300000, guid: 8b0a04261226f3a4ab12128ae0366626, type: 3}
+    volume: 0.5
+    pitchJitter: 0.02
+    minInterval: 0.3
+  - id: 15
+    clips:
+    - {fileID: 8300000, guid: cf68137c8fa890e40a1fde69cea3fb4d, type: 3}
+    volume: 0.5
+    pitchJitter: 0.05
+    minInterval: 0.05
+  - id: 16
+    clips:
+    - {fileID: 8300000, guid: c48ad73b088e7e84cbd835e4a652af11, type: 3}
+    volume: 0.5
+    pitchJitter: 0.02
+    minInterval: 0.4
+  - id: 17
+    clips:
+    - {fileID: 8300000, guid: c08743251c848964fa2ec41328aa896c, type: 3}
+    - {fileID: 8300000, guid: 89e5bc66a714a514c8e3b335e950a862, type: 3}
+    - {fileID: 8300000, guid: 4d2069cf5460a064d8a097c68b59a3d6, type: 3}
+    - {fileID: 8300000, guid: cfc9af34812304e429ea1db05ca30a70, type: 3}
+    volume: 0.3
+    pitchJitter: 0.12
+    minInterval: 0.12
+  - id: 18
+    clips:
+    - {fileID: 8300000, guid: 050547ee334555340861833807e71dc0, type: 3}
+    volume: 0.6
+    pitchJitter: 0.08
+    minInterval: 0.04
+  - id: 19
+    clips:
+    - {fileID: 8300000, guid: dd8cf9915845fe34b9f46edd23327ba3, type: 3}
+    volume: 0.6
+    pitchJitter: 0.03
+    minInterval: 0.1
+  - id: 20
+    clips:
+    - {fileID: 8300000, guid: 57fe5b6386b79bb4b97487d0092e2285, type: 3}
+    volume: 0.5
+    pitchJitter: 0.05
+    minInterval: 0.1
+  - id: 21
+    clips:
+    - {fileID: 8300000, guid: 8180628a9d1ce6b42be2cd37e67f8d17, type: 3}
+    volume: 0.7
+    pitchJitter: 0
+    minInterval: 1
+  - id: 22
+    clips:
+    - {fileID: 8300000, guid: 634c6ce2e429b2246bbe19711203f8c6, type: 3}
+    volume: 0.6
+    pitchJitter: 0.03
+    minInterval: 0.05
+  music: {fileID: 8300000, guid: 4d60fb3eb83354041ae5b35b3d5c842b, type: 3}
+  font: {fileID: 11400000, guid: e597e33783a86f34da75fccaa2109a0f, type: 2}
+  fontOutline: {fileID: 2100000, guid: 4194f85d750f2f74082684e3f93a342d, type: 2}
+  fontWorld: {fileID: 2100000, guid: 4bc19b42d1c0786428a810854976b609, type: 2}
+  spriteRound: {fileID: 21300000, guid: 9e35f98cb2d98a242a65292b1edb602f, type: 3}
+  spriteRoundSmall: {fileID: 21300000, guid: 0ca2e5841e12e07448731ec2a1f3e8a0, type: 3}
+  spriteCircle: {fileID: 21300000, guid: 0d6bfc392e7aa1242afea1b5106ce0d6, type: 3}
+  spriteRing: {fileID: 21300000, guid: e7451618886f91747b05399ffac15fb0, type: 3}
+  spriteRingThin: {fileID: 21300000, guid: 553040c0f550b0943927eda6e10c8d85, type: 3}
+  spriteShadow: {fileID: 21300000, guid: f7c983da79db1414bbc2ec8e18510490, type: 3}
+  iconCoin: {fileID: 21300000, guid: d8034ca3ae633c94dbd2d63f77248536, type: 3}
+  iconGear: {fileID: 21300000, guid: f53001de437cc344f91563e44f531f3c, type: 3}
+  iconArrow: {fileID: 21300000, guid: 983b88cb26e2731479ea39ef1aa12f2a, type: 3}
+  iconSpeed: {fileID: 21300000, guid: dae98a00c087d8f4fbe075142eb63d15, type: 3}
+  iconBag: {fileID: 21300000, guid: 935d1a5e26a42da4bbf744a1a3b5b0a3, type: 3}
+  iconProfit: {fileID: 21300000, guid: 34f5e4af465a4c144b42008a3c1aef6d, type: 3}
+  iconHelper: {fileID: 21300000, guid: f006157d09bfd4f4198dc95e62019345, type: 3}
+  iconCashier: {fileID: 21300000, guid: c7852af51e887cd478324e316cc4c564, type: 3}
+  iconHeart: {fileID: 21300000, guid: 78e6cbb1ff0a641478764a2eac51e660, type: 3}
+  iconLock: {fileID: 21300000, guid: ea3c49248a58ff749afe7bb7661924e5, type: 3}
+  iconStar: {fileID: 21300000, guid: dadd72036616fc6469dc19e27d245ea9, type: 3}
+  iconCheck: {fileID: 21300000, guid: f76e8af5e9ff5524580050181843936b, type: 3}
+  iconMusic: {fileID: 21300000, guid: 89928961c4846b64aa3208e63ae9b742, type: 3}
+  iconSound: {fileID: 21300000, guid: 6fb7c5da6ede0eb478055e0a5092d0d4, type: 3}
+  iconHand: {fileID: 21300000, guid: 06d8ae96634a357419ac97802bd0e739, type: 3}
+  iconBuild: {fileID: 21300000, guid: a38bc6e46e91a8642ad033e1a0aae798, type: 3}
+  iconSad: {fileID: 21300000, guid: 6518f229216c0374f92135332ad76488, type: 3}
+  iconTrash: {fileID: 21300000, guid: 7d8a99249f86ba343b305e069e8854d3, type: 3}
+  iconMedal: {fileID: 21300000, guid: 2b277e9dfd03ec14a8c9ea419a321ccc, type: 3}
+  iconQuest: {fileID: 21300000, guid: d1d20f0177bf5044bb2d2e5ba3e4e127, type: 3}
+  iconChest: {fileID: 21300000, guid: 2b20e153611e5654497e8e205bbea6af, type: 3}
+  padRingMaterial: {fileID: 0}
+  padFillMaterial: {fileID: 0}
+  guideLineMaterial: {fileID: 2100000, guid: 2c3f2cee7ae01b54ea37d489100d15f6, type: 2}
+  blobShadowMaterial: {fileID: 2100000, guid: 6ce11e4f2c5581c42a5c259ad5fdc517, type: 2}
+  guideArrowPrefab: {fileID: 266150780124851505, guid: 9ca6b30b39fa9ae469097958188037f0, type: 3}
+  balance:
+    playerSpeed: 4.4
+    playerSpeedPerLevel: 0.5
+    capacityByLevel: 0400000006000000080000000a0000000d00000010000000
+    profitByLevel:
+    - 1
+    - 1.15
+    - 1.3
+    - 1.5
+    - 1.75
+    - 2
+    playerUpgradeCost: 280000005a000000b40000005401000058020000
+    playerTransferInterval: 0.085
+    helperSpeed: 2.9
+    helperSpeedPerLevel: 0.45
+    helperCapacity: 3
+    helperCapacityPerLevel: 1
+    helperTransferInterval: 0.22
+    helperUpgradeCost: 50000000a00000002c0100000802000052030000
+    cashierTime: 1.05
+    cashierTimePerLevel: -0.15
+    treeGrowInterval: 1.5
+    treeSlots: 7
+    ovenCycle: 2.3
+    ovenTrayMax: 8
+    pieOvenCycle: 2.2
+    pieOvenInputMax: 10
+    pieOvenTrayMax: 6
+    customerInterval: 4.5
+    customerIntervalMin: 2.1
+    customerSpeed: 2.7
+    customerBaseMax: 3
+    customerMaxPerShelf: 2
+    playerCheckoutTime: 0.55
+    customerPatience: 28
+    eatTime: 6
+    tableTip: 3
+    vipChancePerMinute: 0.6
+    vipMultiplier: 3
+    coinValue: 2
+    pileMaxVisual: 36
+    startCoins: 40
+    padFillMin: 0.55
+    padFillMax: 2
+    padFillPerCoin: 0.004
+    padStartDelay: 0.2
+    offlinePerHelperPerSec: 0.35
+    offlineCapSeconds: 7200
+    offlineMinSeconds: 60
+    xpPerLevel: 960000004a010000a4010000c201000058020000ee020000840300001a040000600900008c0a0000
+    xpTailGrowth: 300
+    xpPerCustomer: 2
+    xpPerVip: 6
+    xpPadDivisor: 5
+    xpStationDivisor: 6
+    levelCoins: 1e00000050000000c8000000fa0000004001000090010000f401000058020000e80300004c040000
+    medalsPerLevel: 1
+    stationBaseCost: 3c00000078000000c80000005a000000
+    stationCostGrowth: 1.4
+    stationLevelsPerStar: 5
+    starMedals: 04000000080000000c000000
+    stationSpeedPerLevel: 0.08
+    stationSpeedPerStar: 0.25
+    stationPricePerStar: 0.4
+    checkoutPricePerStar: 0.1
