@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Village Market</title>
+    <meta name="description" content="Уютная игра про свой рынок в сказочной деревне: собирай яблоки, пеки пироги, обслуживай покупателей и расти маленький прилавок в большой рынок.">
+    <meta name="theme-color" content="#f7b45a">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Village Market">
+    <meta property="og:description" content="Уютная игра про свой рынок в сказочной деревне. Играй прямо в браузере.">
+    <meta property="og:image" content="https://bblazeal.github.io/village-market/preview.png">
+    <meta property="og:url" content="https://bblazeal.github.io/village-market/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <style>
+      :root { --ink: #4a2a16; --cream: #fff8e8; --orange: #ff9630; --orange-dark: #cc6216; }
+      html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+      body {
+        background: radial-gradient(ellipse at 50% 30%, #ffe08a 0%, #f7b45a 55%, #e98a3c 100%);
+        font-family: "Rubik", "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: var(--ink);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        -webkit-user-select: none; user-select: none;
+      }
+      #stage {
+        position: relative;
+        height: calc(100vh - 64px); height: calc(100dvh - 64px);
+        aspect-ratio: 9 / 16; max-width: 100vw;
+        border-radius: 22px; overflow: hidden;
+        box-shadow: 0 18px 50px rgba(90, 40, 10, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.35);
+        background: #6f9a4a;
+      }
+      #unity-canvas { width: 100%; height: 100%; display: block; background: #6f9a4a; touch-action: none; outline: none; }
+      #footer { height: 64px; display: flex; align-items: center; gap: 18px; font-size: 15px; font-weight: 600; }
+      #footer a { color: var(--ink); text-decoration: none; padding: 7px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.55); }
+      #footer a:hover { background: rgba(255, 255, 255, 0.85); }
+      #footer button { font: inherit; color: #fff; background: var(--orange); border: 0; border-bottom: 4px solid var(--orange-dark); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+
+      /* phones and narrow windows: the game takes the whole screen */
+      body.mobile #stage { height: 100%; width: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none; }
+      body.mobile #footer { display: none; }
+
+      #loading {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        background: radial-gradient(ellipse at 50% 35%, #ffe7a3 0%, #f7b45a 60%, #ec9244 100%);
+        transition: opacity 0.4s ease;
+      }
+      #loading.hidden { opacity: 0; pointer-events: none; }
+      #logo { width: 38%; max-width: 200px; border-radius: 22%; box-shadow: 0 10px 30px rgba(90, 40, 10, 0.35); animation: bob 2.4s ease-in-out infinite; }
+      #title { margin-top: 22px; font-size: clamp(26px, 6vh, 46px); font-weight: 800; color: #fff; letter-spacing: 0.5px;
+        text-shadow: 0 3px 0 var(--ink), 3px 0 0 var(--ink), -3px 0 0 var(--ink), 0 -3px 0 var(--ink), 0 6px 14px rgba(0, 0, 0, 0.25); }
+      #bar { margin-top: 26px; width: 62%; height: 18px; border-radius: 999px; background: rgba(74, 42, 22, 0.25); overflow: hidden; }
+      #fill { height: 100%; width: 0%; border-radius: 999px; background: linear-gradient(#8ee06a, #55b33c); transition: width 0.2s ease; }
+      #status { margin-top: 12px; font-size: 15px; font-weight: 600; opacity: 0.8; text-align: center; padding: 0 24px; }
+      #status.error { opacity: 1; font-size: 16px; line-height: 1.4; }
+      @keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div id="loading">
+        <img id="logo" src="logo.png" alt="">
+        <div id="title">Village Market</div>
+        <div id="bar"><div id="fill"></div></div>
+        <div id="status"></div>
+      </div>
+    </div>
+    <div id="footer">
+      <button id="fullscreen" type="button"></button>
+      <a id="dl-win" href="https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Windows.zip"></a>
+      <a id="dl-android" href="https://github.com/bblazeAl/village-market/releases/latest/download/VillageMarket-Android.apk"></a>
+      <a href="https://github.com/bblazeAl/village-market">GitHub</a>
+    </div>
+    <script>
+      var ru = (navigator.language || "").toLowerCase().indexOf("ru") === 0;
+      var T = ru
+        ? { loading: "Загрузка…", starting: "Почти готово…", fullscreen: "На весь экран", win: "Скачать для Windows", android: "Скачать для Android",
+            error: "Не получилось запустить игру в этом браузере. Попробуй Chrome, Edge или Firefox на компьютере или скачай игру для Windows или Android." }
+        : { loading: "Loading…", starting: "Almost there…", fullscreen: "Fullscreen", win: "Download for Windows", android: "Download for Android",
+            error: "The game could not start in this browser. Try Chrome, Edge or Firefox on a computer, or download the Windows or Android version." };
+      document.getElementById("fullscreen").textContent = T.fullscreen;
+      document.getElementById("dl-win").textContent = T.win;
+      document.getElementById("dl-android").textContent = T.android;
+      var statusEl = document.getElementById("status");
+      statusEl.textContent = T.loading;
+
+      var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      function layout() {
+        var narrow = window.innerWidth < window.innerHeight * 0.75;
+        document.body.classList.toggle("mobile", mobile || narrow);
+      }
+      layout();
+      window.addEventListener("resize", layout);
+
+      var canvas = document.querySelector("#unity-canvas");
+      var config = {
+        arguments: [],
+        dataUrl: "Build/WebGL.data.unityweb",
+        frameworkUrl: "Build/WebGL.framework.js.unityweb",
+        codeUrl: "Build/WebGL.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Alena",
+        productName: "Village Market",
+        productVersion: "0.1.0",
+        // sharp but not wasteful: phone screens with 3x pixels would render 9x the work
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2),
+        showBanner: function (msg, type) { if (type === "error") showError(); },
+      };
+
+      function showError() {
+        document.getElementById("bar").style.display = "none";
+        statusEl.className = "error";
+        statusEl.textContent = T.error;
+        document.getElementById("loading").classList.remove("hidden");
+      }
+
+      var instance = null;
+      document.getElementById("fullscreen").onclick = function () { if (instance) instance.SetFullscreen(1); };
+
+      var script = document.createElement("script");
+      script.src = "Build/WebGL.loader.js";
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (progress) {
+          document.getElementById("fill").style.width = Math.round(100 * progress) + "%";
+          if (progress >= 0.9) statusEl.textContent = T.starting;
+        }).then(function (unityInstance) {
+          instance = unityInstance;
+          document.getElementById("loading").classList.add("hidden");
+          canvas.focus();
+        }).catch(function () { showError(); });
+      };
+      script.onerror = showError;
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
